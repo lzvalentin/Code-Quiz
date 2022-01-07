@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
-    <!-- linked css -->
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
-<body>
-<header id="header">
-        <h1>Welcome to the Code Quiz!</h1>
-</header>
-<div id="question" class="hide">Question
-<div id="answ-button" class="btn-grid">
-  <button class="btn">Answer1</button>
-  <button class="btn">Answer2</button>
-  <button class="btn">Answer3</button>
-  <button class="btn">Answer4</button>
-</div>
-</div>
-<div id="controls">
-        <button id="start" class="start-btn">Start</button>
-        <button id="reset" class="reset-btn hide">Reset</button>
-</div>
-     
 
-<!--link js  -->
-    <script src= "./assets/script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Quiz</title>
+  <!-- linked css -->
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <header id="header">
+    <h1>Welcome to the Code Quiz!</h1>
+    <div class="time">Time: <span id='countdown'>0</span></div>
+  </header>
+
+
+  <div id="controls">
+    <h2>Lets begin!</h2>
+    <button id="start" class="start-btn">Start</button>
+  </div>
+
+  <div id="questionContainer" class="hide">
+    <h2 id="question"></h2>
+    <div id="answ-button" class="btn-grid">
+    </div>
+  </div>
+
+  <div id="end" class="hide">
+    <h2>Game over</h2>
+    <p>your score: <span id="finalScore"></span></p>
+    <p>initals here: <input type="text" id="initals"> <button id="submit">submit</button></p>
+  </div>
+
+
+  <!--link js  -->
+  <script src="./assets/script.js"></script>
 </body>
+
 </html>
