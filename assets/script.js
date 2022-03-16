@@ -9,16 +9,17 @@ var time = 120;
 var countdown = document.getElementById('countdown');
 var index = 0;
 
+
 var questions = [
     {
-        question: "What are Pseudo elements?",
+        question: "What does CSS stand for?",
         options: [
-            "Add special effects to selectors",
-            "Apply styles in HTML mark-up",
-            "None of the above",
-            "All of the above"
+            "Crazy Street Style",
+            "Cats Serpents & Snails",
+            "Code Schedule Site",
+            "Cascading Style Sheets"
         ],
-        answer: "None of the above"
+        answer: "Cascading Style Sheets"
 
     },
     {
@@ -31,6 +32,26 @@ var questions = [
         ],
         answer: "2"
 
+    },
+    {
+        question: "Are Java and JavaScript the same?",
+        options: [
+            "yes",
+            "No",
+            "Maybe",
+            "None of the above"
+        ],
+        answer: "No"
+    },
+    {
+        question: "How do programmers enjoy life?",
+        options: [
+            "Seeing their code work",
+            "laughing at the comma they missed",
+            "All of the Above",
+            "None of the Above"
+        ],
+        answer: "All the Above"
     }
 ]
 
@@ -39,7 +60,7 @@ var questions = [
 function startGame() {
 
     //when the game starts we need to hide the controls container and display the question container
-    // we need to start our timer and display the time on the page
+    //start our timer and display the time on the page
 
     controls.setAttribute('class', 'hide');
     questionContainterEl.removeAttribute('class');
@@ -48,8 +69,8 @@ function startGame() {
         time--;
 
         countdown.textContent = time
-        if (time <= 0) {
 
+        if (time <= 0) {
         }
 
     }, 1000)
@@ -83,7 +104,7 @@ function buttonClick() {
     console.log(this.value)
 
     if (this.value !== questions[index].answer) {
-        time -= 2
+        time -= 10
 
         countdown.textContent = time;
     }
@@ -94,13 +115,9 @@ function buttonClick() {
         alert('game over')
     } else {
         showQuestion()
-    }
+    } 
 
 }
-
-// function answer(){
-
-// }
 
 
 // click button
