@@ -1,13 +1,25 @@
-var startBtn = document.getElementById('start')
-var questionContainterEl = document.getElementById('questionContainer')
-//let shuffleQuestions
-var questionEl = document.getElementById('question')
-var answerBtnEl = document.getElementById('answ-button')
-var controls = document.getElementById('controls');
-var timer;
-var time = 120;
-var countdown = document.getElementById('countdown');
-var index = 0;
+
+var timerID;
+var timeLeft = 75;
+var timerEl=
+var timerEl = document.getElementById("timer");
+var startButton = document.getElementById("start-btn");
+var nextButton = document.getElementById("next-btn");
+var questionContainerEl = document.getElementById("question-container");
+var startContainerEl = document.getElementById("start-container");
+var questionEl = document.getElementById("question");
+var answerButtonsEl = document.getElementById("answer-buttons");
+var checkAnswerEl = document.getElementById("check-answer");
+var viewHighScores = document.getElementById("highscores-link");
+var submitButton = document.getElementById("submit-btn");
+var clearScoreButton = document.getElementById("clear-btn");
+var initialsField = document.getElementById("player-name");
+var restartButton = document.getElementById("restart-btn");
+var scoreField = document.getElementById("player-score");
+var scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+var shuffledQuestions, currentQuestionIndex;
+
 
 
 var questions = [
@@ -52,73 +64,28 @@ var questions = [
             "None of the Above"
         ],
         answer: "All the Above"
-    }
+    },
+    {
+        question: "A loop that never ends is referred to as a(n)_________.",
+        options: [
+            "While Loop",
+            "Infinite Loop",
+            "Recursive Loop",
+            "for loop"
+        ],
+        answer: "Infinite Loop"
+    },
+
+    {
+        question: "_______ is the process of finding errors and fixing them within a program.",
+        options: [
+            "Scanning",
+            "Executing",
+            "Compiling",
+            "Debugging"
+        ],
+        answer: "Debugging"
+    },
 ]
 
 
-// show game
-function startGame() {
-
-    //when the game starts we need to hide the controls container and display the question container
-    //start our timer and display the time on the page
-
-    controls.setAttribute('class', 'hide');
-    questionContainterEl.removeAttribute('class');
-
-    timer = setInterval(function () {
-        time--;
-
-        countdown.textContent = time
-
-        if (time <= 0) {
-        }
-
-    }, 1000)
-
-    countdown.textContent = time;
-
-    showQuestion()
-}
-
-function showQuestion() {
-    var currentQuestion = questions[index];
-
-    questionEl.textContent = currentQuestion.question
-
-    answerBtnEl.innerHTML = "";
-    
-    currentQuestion.options.forEach(function (choice) {
-        var choiceBtn = document.createElement('button');
-        choiceBtn.setAttribute('value', choice);
-
-        choiceBtn.textContent = choice;
-
-        choiceBtn.onclick = buttonClick;
-
-        answerBtnEl.append(choiceBtn)
-    })
-
-}
-
-function buttonClick() {
-    console.log(this.value)
-
-    if (this.value !== questions[index].answer) {
-        time -= 10
-
-        countdown.textContent = time;
-    }
-
-    index++
-
-    if (index === questions.length) {
-        alert('game over')
-    } else {
-        showQuestion()
-    } 
-
-}
-
-
-// click button
-startBtn.addEventListener('click', startGame)
